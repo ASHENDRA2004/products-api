@@ -27,4 +27,9 @@ public class ProductService {
         products.add(product);
         return product;
     }
+
+    public void deleteProduct(Long id) {
+        // removeIf is safe; removing inside a for loop throws ConcurrentModificationException
+        products.removeIf(p -> p.getId().equals(id));
+    }
 }
