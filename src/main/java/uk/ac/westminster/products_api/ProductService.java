@@ -32,4 +32,11 @@ public class ProductService {
         // removeIf is safe; removing inside a for loop throws ConcurrentModificationException
         products.removeIf(p -> p.getId().equals(id));
     }
+
+    public List<Product> findByName(String name) {
+        // go through the list, keep the ones whose name contains the text, collect what survived
+        return products.stream()
+                .filter(p -> p.getName().contains(name))
+                .toList();
+    }
 }
