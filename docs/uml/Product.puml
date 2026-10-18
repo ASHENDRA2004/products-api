@@ -26,6 +26,7 @@ class ProductService {
   + addProduct(product : Product) : Product
   + deleteProduct(id : Long) : void
   + findByName(name : String) : List<Product>
+  + findCheaperThan(price : double) : List<Product>
 }
 
 class ProductController {
@@ -35,6 +36,7 @@ class ProductController {
   + addProduct(product : Product) : Product
   + deleteProduct(id : Long) : void
   + search(name : String) : List<Product>
+  + cheaperThan(price : double) : List<Product>
 }
 
 ' ..> is a dependency: DASHED line, open arrow

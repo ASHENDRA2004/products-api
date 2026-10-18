@@ -39,4 +39,11 @@ public class ProductService {
                 .filter(p -> p.getName().contains(name))
                 .toList();
     }
+
+    // stretch task: a rule about products, not about HTTP, so it lives in the service
+    public List<Product> findCheaperThan(double price) {
+        return products.stream()
+                .filter(p -> p.getPrice() < price)
+                .toList();
+    }
 }
