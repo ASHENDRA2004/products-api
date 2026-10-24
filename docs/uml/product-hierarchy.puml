@@ -36,9 +36,21 @@ class PhysicalProduct {
   + getDimensions() : String
 }
 
+class BundleProduct {
+  - items : List<Product>
+  + BundleProduct()
+  + BundleProduct(id : Long, name : String, price : double, items : List<Product>)
+  + getItems() : List<Product>
+  + getItemCount() : int
+}
+
 ' <|-- is the inheritance arrow. The PARENT goes on the left,
 ' so the hollow triangle touches Product.
 Product <|-- DigitalProduct
 Product <|-- PhysicalProduct
+Product <|-- BundleProduct
+
+' Stretch: a bundle also HAS-A list of products (composition / aggregation)
+BundleProduct o-- "0..*" Product : items
 
 @enduml

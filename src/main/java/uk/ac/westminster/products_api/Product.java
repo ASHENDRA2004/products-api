@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 // Tells Jackson which subclass to build from POST JSON by looking at the fields:
-// "downloadUrl" -> DigitalProduct, "weightKg" -> PhysicalProduct, otherwise a plain Product.
+// "downloadUrl" -> DigitalProduct, "weightKg" -> PhysicalProduct, "items" -> BundleProduct, otherwise a plain Product.
 @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION, defaultImpl = Product.class)
 @JsonSubTypes({
         @JsonSubTypes.Type(DigitalProduct.class),
-        @JsonSubTypes.Type(PhysicalProduct.class)
+        @JsonSubTypes.Type(PhysicalProduct.class),
+        @JsonSubTypes.Type(BundleProduct.class)
 })
 public class Product {
 

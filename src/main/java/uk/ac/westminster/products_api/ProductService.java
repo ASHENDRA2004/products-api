@@ -22,6 +22,11 @@ public class ProductService {
         products.add(new PhysicalProduct(
                 nextId++, "27-inch Monitor", 249.99,
                 5.4, "61cm x 41cm x 18cm"));
+
+        // Stretch task: a bundle is a Product that HAS-A list of Products
+        products.add(new BundleProduct(
+                nextId++, "Developer Starter Kit", 259.99,
+                List.of(products.get(0), products.get(1))));
     }
 
     public List<Product> getAllProducts() {
